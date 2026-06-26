@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="login-container">
+  <h2>Tela de Login</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="campo">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="Digite seu email">
+
+      <span class="erro" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        Email inválido ou obrigatório
+      </span>
+    </div>
+
+    <div class="campo">
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" formControlName="senha" placeholder="Digite sua senha">
+
+      <span class="erro" *ngIf="loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid">
+        Senha obrigatória
+      </span>
+    </div>
+
+    <div class="campo-checkbox">
+      <input id="lembrarMe" type="checkbox">
+      <label for="lembrarMe">Lembrar me</label>
+      <a href="#">Esqueci minha senha</a>
+    </div>
+
+    <span class="erro-geral" *ngIf="mensagemErro">{{ mensagemErro }}</span>
+
+    <button type="submit" [disabled]="carregando">
+      {{ carregando ? 'Entrando...' : 'Logar' }}
+    </button>
+
+  </form>
+</div>

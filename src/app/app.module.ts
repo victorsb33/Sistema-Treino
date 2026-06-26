@@ -12,6 +12,9 @@ import { TelaInicialComponent } from './views/pages/tela-inicial/tela-inicial.co
 import { GradeTreinoComponent } from './views/pages/tela-inicial/grade-treino/grade-treino.component';
 import { ExercicioDiarioComponent } from './views/pages/tela-inicial/exercicio-diario/exercicio-diario.component';
 import { InformacoesUsuarioComponent } from './views/pages/tela-inicial/informacoes-usuario/informacoes-usuario.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +27,16 @@ import { InformacoesUsuarioComponent } from './views/pages/tela-inicial/informac
     TelaInicialComponent,
     GradeTreinoComponent,
     ExercicioDiarioComponent,
-    InformacoesUsuarioComponent
+    InformacoesUsuarioComponent,
+    
+    
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
