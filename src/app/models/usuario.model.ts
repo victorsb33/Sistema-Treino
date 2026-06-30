@@ -1,15 +1,15 @@
 export interface Usuario {
     id: string;
-    nome: string;
+    nome?: string;
     email: string;
     senha: string;
-    altura: number;
-    peso: number;
-    imc: number;
-    objetivo: ObjetivoTreino;
-    diasDeTreino: number;
-    tempoDisponivel: number;
-    qrCode: string;
+    altura?: number;
+    peso?: number;
+    imc?: number;
+    objetivo?: ObjetivoTreino;
+    diasDeTreino?: number;
+    tempoDisponivel?: number;
+    qrCode?: string;
 }
 
 export type ObjetivoTreino =

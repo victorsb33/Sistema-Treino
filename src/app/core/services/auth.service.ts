@@ -23,7 +23,7 @@ export class AuthService {
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { email, senha });
   }
 
-  cadastrar(nome: string, email: string, senha: string): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.apiUrl}/cadastro`, { nome, email, senha });
+  cadastrar( email: string, senha: string): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.apiUrl}/cadastro`, { email, senha });
   }
 }

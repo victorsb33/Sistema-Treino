@@ -1,1 +1,35 @@
-<p>cadastro works!</p>
+<div class="cadastro-container">
+    <h2>Tela de Cadastro</h2>
+
+    <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+
+        <div class="campo">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" placeholder="Digite seu email">
+
+            <span class="erro" *ngIf="cadastroForm.get('email')?.touched && cadastroForm.get('email')?.invalid">
+                Email inválido ou obrigatório
+            </span>
+        </div>
+
+        <div class="campo">
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" formControlName="senha" placeholder="Digite sua senha">
+
+            <span class="erro" *ngIf="cadastroForm.get('senha')?.touched && cadastroForm.get('senha')?.invalid">
+                Senha obrigatória
+            </span>
+        </div>
+
+        <span class="erro-geral" *ngIf="mensagemErro">{{ mensagemErro }}</span>
+
+        <button type="submit" [disabled]="carregando">
+            {{ carregando ? 'Cadastrando...' : 'Cadastrar' }}
+        </button>
+
+        <p class="link-cadastro">
+            Ja tem conta? <a routerLink="/login">Fazer login</a>
+        </p>
+
+    </form>
+</div>
