@@ -1,1 +1,37 @@
-<p>personalizacao-treino works!</p>
+<div class="personalizacao-container">
+  <h2>Qual é o seu objetivo?</h2>
+  <p>Escolha um objetivo para montarmos seu treino</p>
+
+  <div class="cards-container">
+
+    <div class="card"
+      [class.selecionado]="objetivoSelecionado === 'ganho_massa'"
+      (click)="selecionarObjetivo('ganho_massa')">
+      <h3>Ganho de Massa</h3>
+    </div>
+
+    <div class="card"
+      [class.selecionado]="objetivoSelecionado === 'ganho_forca'"
+      (click)="selecionarObjetivo('ganho_forca')">
+      <h3>Ganho de Força</h3>
+    </div>
+
+    <div class="card"
+      [class.selecionado]="objetivoSelecionado === 'resistencia'"
+      (click)="selecionarObjetivo('resistencia')">
+      <h3>Ganho de Resistência</h3>
+    </div>
+
+    <div class="card"
+      [class.selecionado]="objetivoSelecionado === 'perda_peso'"
+      (click)="selecionarObjetivo('perda_peso')">
+      <h3>Perda de Peso</h3>
+    </div>
+
+  </div>
+
+  <span class="erro" *ngIf="mensagemErro">{{ mensagemErro }}</span>
+
+  <button (click)="avancar()">Avançar</button>
+
+</div>

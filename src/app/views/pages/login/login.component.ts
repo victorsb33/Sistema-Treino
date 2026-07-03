@@ -23,8 +23,8 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required]
     });
-   }
-  
+  }
+
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
@@ -40,7 +40,12 @@ export class LoginComponent {
       next: (resposta) => {
         localStorage.setItem('token', resposta.token);
         localStorage.setItem('usuario', JSON.stringify(resposta.usuario));
-        this.router.navigate(['/tela-inicial']);
+
+        if (!resposta.usuario.objetivo) {
+          this.router.navigate(['/personalizacao-treino']);
+        } else {
+          this.router.navigate(['/tela-inicial']);
+        }
       },
       error: (erro) => {
         this.carregando = false;

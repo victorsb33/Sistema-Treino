@@ -1,0 +1,11 @@
+.card {
+  border: 2px solid #ccc;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.card.selecionado {
+  border-color: #007bff;
+  background-color: #e8f0fe;
+}
