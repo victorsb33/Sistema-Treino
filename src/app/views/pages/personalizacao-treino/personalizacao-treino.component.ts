@@ -34,4 +34,5 @@ export class PersonalizacaoTreinoComponent {
 
     this.router.navigate(['/modal-treino']);
   }
+  
 }

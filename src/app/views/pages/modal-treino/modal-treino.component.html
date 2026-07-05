@@ -1,1 +1,53 @@
-<p>modal-treino works!</p>
+<h2>Tela de Modal</h2>
+
+    <form [formGroup]="modalForm" (ngSubmit)="onSubmit()">
+
+        <div class="campo">
+            <label for="nome">Nome</label>
+            <input  type="text" formControlName="nome" placeholder="Digite seu nome">
+
+            <span class="erro" *ngIf="modalForm.get('nome')?.touched && modalForm.get('nome')?.invalid">
+                Nome obrigatório
+            </span>
+        </div>
+
+        <div class="campo">
+            <label for="altura">Altura (cm)</label>
+            <input type="number" formControlName="altura" placeholder="Digite sua altura">
+
+            <span class="erro" *ngIf="modalForm.get('altura')?.touched && modalForm.get('altura')?.invalid">
+                Altura obrigatória
+            </span>
+        </div>
+        <div class="campo">
+            <label for="senha">Peso (kg)</label>
+            <input type="number" formControlName="peso" placeholder="Digite sua peso">
+
+            <span class="erro" *ngIf="modalForm.get('peso')?.touched && modalForm.get('peso')?.invalid">
+                Peso obrigatório
+            </span>
+        </div>
+        <div class="campo">
+            <label for="diasDeTreino">Dias de treino por semana</label>
+            <input type="number" formControlName="diasDeTreino" placeholder="Digite quantos dias de treino">
+
+            <span class="erro" *ngIf="modalForm.get('diasDeTreino')?.touched && modalForm.get('diasDeTreino')?.invalid">
+                Dias de treino obrigatório
+            </span>
+        </div>
+        <div class="campo">
+            <label for="tempoDisponivel">Tempo disponível (minutos)</label>
+            <input type="number" formControlName="tempoDisponivel" placeholder="Digite tempo disponínel">
+
+            <span class="erro" *ngIf="modalForm.get('tempoDisponivel')?.touched && modalForm.get('tempoDisponivel')?.invalid">
+                Tempo disponível obrigatório
+            </span>
+        </div>
+
+        <span class="erro-geral" *ngIf="mensagemErro">{{ mensagemErro }}</span>
+
+        <button type="submit" [disabled]="carregando">
+            {{ carregando ? 'Salvando...' : 'Avançar' }}
+        </button>
+
+    </form>
